@@ -25,7 +25,7 @@ app.use('/users', usersRouter);
 app.use('/api/v1/categories', require('./routes/categories'));
 app.use('/api/v1/products', require('./routes/products'));
 
-mongoose.connect('mongodb://localhost:27017/NNPTUD-S3');
+mongoose.connect('mongodb://localhost:27017/NNPTUDSANGTHU7');
 mongoose.connection.on('connected', function () {
   console.log("connected");
 })
