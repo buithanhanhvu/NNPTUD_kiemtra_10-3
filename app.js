@@ -6,7 +6,6 @@ var logger = require('morgan');
 let mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -21,11 +20,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/v1/users', require('./routes/users'));
+app.use('/api/v1/roles', require('./routes/roles'));
 app.use('/api/v1/categories', require('./routes/categories'));
 app.use('/api/v1/products', require('./routes/products'));
 
-mongoose.connect('mongodb://localhost:27017/NNPTUDSANGTHU7');
+mongoose.connect('mongodb://localhost:27017/NNPTUDMKIEMTRA');
 mongoose.connection.on('connected', function () {
   console.log("connected");
 })
